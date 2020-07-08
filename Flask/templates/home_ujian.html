@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <center>
+        <h1>Visualisasi Data Ujian Modul 2</h1>
+        <h3>1. Landsize Boxplot</h3>
+        <img src='C:\Users\Hanif Amari\Documents\HANIF DATA SCIENCE\Purwadhika\Modul 2\Ujian\Flask\templates\Landsize_Boxplot.png'>
+        <p>Dari boxplot diatas, outlier dapat dilihat dengan titik-titik diluar box. 
+            Terlihat bahwa outlier atas lebih banyak disini dan tidak ada outlier bawah. 
+            Jumlah outlier mungkin tidak sama dengan jumlah titik karena range dari boxplot yang sangat jauh sehingga ada overlapping dan tidak terlihat di boxplot. 
+            Untuk informasi median, 75%quartile, dan 25%quartile juga tidak terlihat karena boxnya nyaris berhimpitan. 
+            Perlu penanganan lebih lanjut terutama pada outlier untuk dapat memvisualisasikan datanya supaya lebih baik lagi.
+        </p><br><br>
+
+        <h3>2. Distance Boxplot</h3>
+        <img src='2. Distance_Boxplot.png'>
+        <p>Dari boxplot diatas terlihat outlier berada setelah batas whisker atas. 
+            Jumlah outlier mungkin tidak sama dengan titik karena ada angka yang selisihnya kecil sehingga titiknya overlapping 1 dengan yang lain. 
+            Terlihat bahwa garis median condong lebih ke kiri sehingga bisa dibilang terjadi positive skewness
+        </p><br><br>
+
+        <h3>3. Distribution of Landsize</h3>
+        <img src='3. Distribution_of_Landsize.jpg'>
+        <p>Dari distribution plot diatas terlihat bahwa data Landsize berfokus di sebelah kiri sehingga tidak terdistribusi secara normal. 
+            Kurva KDE pun juga tidak terlihat disini. Bisa dilihat bahwa outlier banyak terdapat disebalah kanan juga, sesuai dengan boxplot yang divisualisasikan
+        </p><br><br>
+
+        <h3>4. Distribution of YearBuilt</h3>
+        <img src='4. Distribution_of_YearBuilt.png'>
+        <p>Dari distribution plot ini, bisa dilihat bahwa kurva KDE condong ke kanan sehingga bisa dibilang datanya negative skewed dan seharusnya outlier lebih banyak disebelah kiri 
+            atau batas bawah dari boxplot.
+        </p><br><br>
+
+        <h3>5. Boxplot YearBuilt</h3>
+        <img src='5. Boxplot YearBuilt.png'>
+        <p>Dari boxplot diatas terbukti bahwa memang outlier justru banyak dibatas bawah atau sebelah kiri dari boxplot yang ditampilkan. 
+            Dari garis median sudah berada di tengah namun harus dicek lebih lanjut dengan normaltest, skewtest, dan kurtosistest apakah dia terdistribusi normal atau tidak
+        </p><br><br>
+
+        <h3>6 7 8. YearBuilt vs Price</h3>
+        <img src='6. YearBuilt_vs_Price.png'>
+        <img src='7. YearBuilt_vs_Price.png'>
+        <p>Dari visualisasi diatas dapat dilihat bahwa harga rata-rata rumah setiap tahunnya cenderung mengalami penurunan namun ini berkebalikan dengan fakta yang ada di dunia ini, 
+            bahwa harga rumah seharusnya semakin meningkat karena populasi orang di dunia yang terus bertambah sedangkan luas tanah di bumi ini tidak berubah. 
+            Perlu analisis lebih lanjut sebelum mengambil kesimpulan ini. Namun apabila dipaksa berarti sebaiknya membeli rumah nanti saja karena harganya akan semakin menurun
+        </p><br><br>
+        <img src='8. YearBuilt_vs_Price.png'>
+        <p>Dari plot diatas juga dapat dilihat bahwa harga rumah banyak berkumpul di tahun 1800-2000 dengan nilai yang sangat fluktuatif sehingga perlu analisa lebih lanjut sebelum mengambil kesimpulan</p>
+        <br><br>
+
+        <h3>9. Correlation.png</h3>
+        <img src='9. Correlation.png'>
+        <p>
+            Disini saya menggunakan korelasi dengan metode 'spearman' karena semua data pada kolom tersebut tidak terdistribusi normal dan jumlah datanya menurut saya cukup banyak sehingga saya tidak menggunakan 'kendall'. 
+            Dilihat dari nilai korelasinya semakin besar maka semakin berkorelasi, baik itu berbanding lurus(positive) atau berbanding terbalik(negative). 
+            Nilai korelasi memiliki range antara -1 dan 1, semakin mendekati 1 atau -1 berarti semakin berkorelasi sedangkan semakin mendekati 0 berarti semakin tidak berkorelasi.
+        </p><br>
+        <p>
+            Menurut https://towardsdatascience.com/why-feature-correlation-matters-a-lot-847e8ba439c4, nilai yang dianggap memiliki strong correlation antara 0.5-0.7, 
+            saya menggunakan angka ini menjadi suatu acuan untuk menentukan kualitasi korelasi dari data ini.
+        </p><br>
+        <p>
+            Kolom 'Landsize' memiliki nilai korelasi 0.33 jadi saya kategorikan sebagai weak-correlation dimana korelasinya lemah dan berbanding lurus, 
+            artinya semakin luas 'Landsize' maka seharusnya harga(Price) semakin tinggi karena nilai korelasinya positif namun korelasinya lemah.
+        </p><br>
+        <p>
+            Kolom 'Distance' memiliki nilai korelasi -0.13 artinya angka ini lebih dekat ke-0 sehingga saya kategorikan tidak memiliki korelasi. 
+            Artinya kolom 'Distance' hampir tidak punya korelasi dalam penentuan harga(Price) rumah. 
+            Kalaupun dianggap ada maka berbanding terbalik artinya semakin jauh 'Distance'-nya semakin kecil harga(Price) rumahnya karena nilainya negatif. 
+            Fenomena ini mungkin saja terjadi karena jarak rumah ke C.B.D (Central Business District) ternyata tidak berpengaruh karena kemajuan teknologi sehingga kebanyakan pegawai di negara atau daerah tersebut melakukan work-from-home. 
+            Namun ini baru salah satu kemungkinan dari sekian banyak kemungkinan yang ada, sehingga perlu dianalisis lebih lanjut
+        </p><br>
+        <p>
+            Kolom 'Room' memiliki nilai korelasi sebesar 0.54 artinya disini kolom ini memiliki strong-correlation dengan harga(Price) rumah. 
+            Karena nilainya positif berarti semakin banyak jumlah_kamar(Room) berarti semakin mahal harga(Price) rumahnya (berbanding lurus).
+        </p><br>
+        <p>
+            Diantara semua feature/column ini yang paling memiliki korelasi adalah kolom 'Room' sehingga kolom ini memiliki pengaruh yang sangat besar dalam menentukan harga(Price) rumah.
+        </p><br>
+        <p>
+            Untuk developer rumah lebih baik mempertimbangkan jumlah_kamar(Room) daripada ukuran_tanah(Landsize) apalagi jarak(Distance) dalam membangun rumah karena feature ini yang paling mempengaruhi harga jual suatu rumah pada dataset ini. 
+            Tentunya hal ini juga harus disesuaikan dengan daya beli masyarakat sehingga harga yang ditentukan lebih optimal. Perlu diingat bahwa yang maksimal belum tentu optimal.
+        </p><br>
+
+
+    </center>
+</body>
+</html>
